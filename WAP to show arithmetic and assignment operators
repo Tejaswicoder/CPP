@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Declare variables to store user inputs
+    int num1, num2;
+    
+    // Get input from the user
+    cout << "Enter the first number: ";
+    cin >> num1;
+    cout << "Enter the second number: ";
+    cin >> num2;
+
+    // Demonstrate arithmetic operators
+    cout << "Arithmetic Operations:" << endl;
+    cout << num1 << " + " << num2 << " = " << (num1 + num2) << endl;
+    cout << num1 << " - " << num2 << " = " << (num1 - num2) << endl;
+    cout << num1 << " * " << num2 << " = " << (num1 * num2) << endl;
+    if (num2 != 0) {
+        cout << num1 << " / " << num2 << " = " << (num1 / num2) << endl;
+        cout << num1 << " % " << num2 << " = " << (num1 % num2) << endl;
+    } else {
+        cout << "Division and modulus by zero are not allowed." << endl;
+    }
+
+    // Demonstrate assignment operators
+    cout << "\nAssignment Operations:" << endl;
+    
+    // Using += operator
+    int result = num1;
+    result += num2;
+    cout << num1 << " += " << num2 << " => " << result << endl;
+
+    // Using -= operator
+    result = num1;
+    result -= num2;
+    cout << num1 << " -= " << num2 << " => " << result << endl;
+
+    // Using *= operator
+    result = num1;
+    result *= num2;
+    cout << num1 << " *= " << num2 << " => " << result << endl;
+
+    // Using /= operator
+    if (num2 != 0) {
+        result = num1;
+        result /= num2;
+        cout << num1 << " /= " << num2 << " => " << result << endl;
+    } else {
+        cout << "Assignment division by zero is not allowed." << endl;
+    }
+
+    // Using %= operator
+    if (num2 != 0) {
+        result = num1;
+        result %= num2;
+        cout << num1 << " %= " << num2 << " => " << result << endl;
+    } else {
+        cout << "Assignment modulus by zero is not allowed." << endl;
+    }
+
+    return 0;
+}
