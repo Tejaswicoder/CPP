@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int age_years;
+    int age_months;
+    int age_days;
+
+    // Number of days in a year and month
+    const int days_in_year = 365;
+    const int days_in_month = 30;  // Approximation, ignoring varying month lengths and leap years
+
+    // Prompt the user for their age in years
+    cout << "Enter your age in years: ";
+    cin >> age_years;
+
+    // Calculate age in months and days
+    age_months = age_years * 12;
+    age_days = age_years * days_in_year;
+
+    // Output the results
+    cout << "Your age in months: " << age_months << endl;
+    cout << "Your age in days: " << age_days << endl;
+
+    return 0;
+}
