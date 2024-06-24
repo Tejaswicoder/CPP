@@ -1,0 +1,29 @@
+#include <iostream>
+
+// Function to calculate base ^ power
+double power(double base, int exponent) {
+    double result = 1;
+    for (int i = 0; i < exponent; ++i) {
+        result *= base;
+    }
+    return result;
+}
+
+int main() {
+    double base;
+    int exponent;
+
+    // Prompt the user to enter the base and exponent
+    std::cout << "Enter the base: ";
+    std::cin >> base;
+    std::cout << "Enter the exponent: ";
+    std::cin >> exponent;
+
+    // Calculate the result using the power function
+    double result = power(base, exponent);
+
+    // Display the result
+    std::cout << base << " ^ " << exponent << " = " << result << std::endl;
+
+    return 0;
+}
