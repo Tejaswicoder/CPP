@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+struct Book {
+    std::string title;
+    std::string author;
+    std::string publication;
+    double price;
+};
+
+int main() {
+    int n;
+
+    // Ask the user for the number of books
+    std::cout << "Enter the number of books: ";
+    std::cin >> n;
+
+    // Create a vector to store the books
+    std::vector<Book> books(n);
+
+    // Input book details
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Enter details for book " << i + 1 << ":\n";
+        std::cin.ignore(); // Ignore newline character left in the buffer
+
+        std::cout << "Title: ";
+        std::getline(std::cin, books[i].title);
+
+        std::cout << "Author: ";
+        std::getline(std::cin, books[i].author);
+
+        std::cout << "Publication: ";
+        std::getline(std::cin, books[i].publication);
+
+        std::cout << "Price: ";
+        std::cin >> books[i].price;
+    }
+
+    // Display book details
+    std::cout << "\nBook Records:\n";
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Book " << i + 1 << ":\n";
+        std::cout << "Title: " << books[i].title << "\n";
+        std::cout << "Author: " << books[i].author << "\n";
+        std::cout << "Publication: " << books[i].publication << "\n";
+        std::cout << "Price: $" << books[i].price << "\n";
+        std::cout << std::endl;
+    }
+
+    return 0;
+}
