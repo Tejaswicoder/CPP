@@ -1,0 +1,33 @@
+#include <iostream>
+#include <sstream> // For std::stringstream
+
+// Function to calculate factorial of a number
+unsigned long long factorial(int n) {
+    if (n <= 1) return 1;
+    return n * factorial(n - 1);
+}
+
+int main() {
+    std::string input;
+    int wordCount = 0;
+
+    // Prompt the user to enter a sentence
+    std::cout << "Enter a sentence: ";
+    std::getline(std::cin, input);
+
+    // Use stringstream to count words
+    std::stringstream ss(input);
+    std::string word;
+    while (ss >> word) {
+        ++wordCount;
+    }
+
+    // Display the word count
+    std::cout << "Number of words: " << wordCount << std::endl;
+
+    // Calculate and display the factorial of the word count
+    unsigned long long fact = factorial(wordCount);
+    std::cout << "Factorial of " << wordCount << " is: " << fact << std::endl;
+
+    return 0;
+}
