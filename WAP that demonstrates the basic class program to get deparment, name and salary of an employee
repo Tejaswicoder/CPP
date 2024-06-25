@@ -1,0 +1,68 @@
+#include <iostream>
+#include <string>
+
+class Employee {
+private:
+    std::string department;
+    std::string name;
+    double salary;
+
+public:
+    // Constructor
+    Employee(const std::string& dept, const std::string& empName, double empSalary) 
+        : department(dept), name(empName), salary(empSalary) {}
+
+    // Setter methods
+    void setDepartment(const std::string& dept) {
+        department = dept;
+    }
+
+    void setName(const std::string& empName) {
+        name = empName;
+    }
+
+    void setSalary(double empSalary) {
+        salary = empSalary;
+    }
+
+    // Getter methods
+    std::string getDepartment() const {
+        return department;
+    }
+
+    std::string getName() const {
+        return name;
+    }
+
+    double getSalary() const {
+        return salary;
+    }
+
+    // Display method
+    void displayInfo() const {
+        std::cout << "Employee Information:" << std::endl;
+        std::cout << "Name: " << name << std::endl;
+        std::cout << "Department: " << department << std::endl;
+        std::cout << "Salary: $" << salary << std::endl;
+    }
+};
+
+int main() {
+    // Create an employee object
+    Employee emp("Engineering", "John Doe", 75000.00);
+
+    // Display employee information
+    emp.displayInfo();
+
+    // Modify employee information
+    emp.setDepartment("Research and Development");
+    emp.setName("Jane Smith");
+    emp.setSalary(85000.00);
+
+    std::cout << std::endl;
+
+    // Display updated employee information
+    emp.displayInfo();
+
+    return 0;
+}
