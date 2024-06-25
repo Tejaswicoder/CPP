@@ -1,0 +1,16 @@
+#include <iostream>
+
+// Function to calculate the length of a C-style string
+int my_strlen(const char* str) {
+    int length = 0;
+    while (str[length] != '\0') {
+        ++length;
+    }
+    return length;
+}
+
+int main() {
+    const char* testStr = "Hello, world!";
+    std::cout << "The length of the string \"" << testStr << "\" is " << my_strlen(testStr) << "." << std::endl;
+    return 0;
+}
