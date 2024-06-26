@@ -1,0 +1,91 @@
+#include <iostream>
+
+using namespace std;
+
+class Time {
+private:
+    int Hours;
+    int Minutes;
+    int Seconds;
+
+public:
+    // Default constructor
+    Time() : Hours(0), Minutes(0), Seconds(0) {}
+
+    // Parameterized constructor
+    Time(int h, int m, int s) {
+        setTime(h, m, s);
+    }
+
+    // Member function to set time
+    void setTime(int h, int m, int s) {
+        if (h >= 0 && h < 24) {
+            Hours = h;
+        } else {
+            cout << "Invalid hours. Setting to 0." << endl;
+            Hours = 0;
+        }
+        if (m >= 0 && m < 60) {
+            Minutes = m;
+        } else {
+            cout << "Invalid minutes. Setting to 0." << endl;
+            Minutes = 0;
+        }
+        if (s >= 0 && s < 60) {
+            Seconds = s;
+        } else {
+            cout << "Invalid seconds. Setting to 0." << endl;
+            Seconds = 0;
+        }
+    }
+
+    // Member function to display time in HH:MM:SS format
+    void displayTime() const {
+        cout << (Hours < 10 ? "0" : "") << Hours << ":"
+             << (Minutes < 10 ? "0" : "") << Minutes << ":"
+             << (Seconds < 10 ? "0" : "") << Seconds << endl;
+    }
+
+    // Member function to add time
+    void addTime(const Time &t) {
+        Seconds += t.Seconds;
+        if (Seconds >= 60) {
+            Seconds -= 60;
+            Minutes++;
+        }
+        Minutes += t.Minutes;
+        if (Minutes >= 60) {
+            Minutes -= 60;
+            Hours++;
+        }
+        Hours += t.Hours;
+        if (Hours >= 24) {
+            Hours -= 24;
+        }
+    }
+};
+
+int main() {
+    // Create a Time object using default constructor
+    Time time1;
+    cout << "Time1 (default constructor): ";
+    time1.displayTime();
+
+    // Create a Time object using parameterized constructor
+    Time time2(13, 45, 30);
+    cout << "Time2 (parameterized constructor): ";
+    time2.displayTime();
+
+    // Set time using member function
+    Time time3;
+    time3.setTime(9, 30, 45);
+    cout << "Time3 (setTime): ";
+    time3.displayTime();
+
+    // Add time to time3
+    time3.addTime(time2);
+    cout << "Time3 after adding Time2: ";
+    time3.displayTime();
+
+    return 0;
+}
