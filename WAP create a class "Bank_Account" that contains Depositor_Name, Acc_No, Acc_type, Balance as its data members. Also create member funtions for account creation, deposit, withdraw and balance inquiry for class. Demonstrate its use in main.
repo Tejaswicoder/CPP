@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Bank_Account {
+private:
+    string Depositor_Name;
+    int Acc_No;
+    string Acc_type;
+    double Balance;
+
+public:
+    // Constructor to initialize a new account
+    Bank_Account(string name, int acc_no, string acc_type, double balance) {
+        Depositor_Name = name;
+        Acc_No = acc_no;
+        Acc_type = acc_type;
+        Balance = balance;
+    }
+
+    // Function to deposit money
+    void deposit(double amount) {
+        if (amount > 0) {
+            Balance += amount;
+            cout << "Deposit successful. New balance: " << Balance << endl;
+        } else {
+            cout << "Invalid deposit amount." << endl;
+        }
+    }
+
+    // Function to withdraw money
+    void withdraw(double amount) {
+        if (amount > 0 && amount <= Balance) {
+            Balance -= amount;
+            cout << "Withdrawal successful. New balance: " << Balance << endl;
+        } else {
+            cout << "Invalid withdrawal amount or insufficient balance." << endl;
+        }
+    }
+
+    // Function to inquire balance
+    void balance_inquiry() const {
+        cout << "Current balance: " << Balance << endl;
+    }
+
+    // Function to display account details
+    void display_account_details() const {
+        cout << "Depositor Name: " << Depositor_Name << endl;
+        cout << "Account Number: " << Acc_No << endl;
+        cout << "Account Type: " << Acc_type << endl;
+        cout << "Balance: " << Balance << endl;
+    }
+};
+
+int main() {
+    // Create a new bank account
+    Bank_Account account("John Doe", 123456, "Savings", 1000.0);
+
+    // Display account details
+    account.display_account_details();
+    
+    // Deposit money
+    account.deposit(500.0);
+
+    // Withdraw money
+    account.withdraw(200.0);
+
+    // Inquire balance
+    account.balance_inquiry();
+
+    // Try to withdraw more money than available balance
+    account.withdraw(1500.0);
+
+    return 0;
+}
